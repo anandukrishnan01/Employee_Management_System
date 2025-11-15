@@ -1,3 +1,9 @@
 using django Python 3.12.3
 install packages using  requirements file
 attached json collection with response and screenshots for pages
+
+
+#username and password
+
+username: admin@admin.com
+password: admin
