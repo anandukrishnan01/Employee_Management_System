@@ -1,0 +1,1623 @@
+{
+	"info": {
+		"_postman_id": "525aa558-1aba-4dca-a631-11cb3d7c8728",
+		"name": "Employee_management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32358620",
+		"_collection_link": "https://red-spaceship-215576.postman.co/workspace/New-Team-Workspace~0b90338e-0e1e-4e46-b087-e500fc6119b8/collection/32358620-525aa558-1aba-4dca-a631-11cb3d7c8728?action=share&source=collection_link&creator=32358620"
+	},
+	"item": [
+		{
+			"name": "accounts",
+			"item": [
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2MzIyNzc3NSwiaWF0IjoxNzYzMTQxMzc1LCJqdGkiOiJhN2YzNzQ1MDE5ODE0YWZlYmNjY2EwYWRhMmM4ZDBkNSIsInVzZXJfaWQiOiI5Y2ExMGVlYS0wM2Q0LTQ4ZmItYWVkOS0zOTg4YjgzMTRkZDAifQ.1kZW61I3C84EChC-cHcr9lirAQpDPwL-fuyRc_3XtAY\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/accounts/logout/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"accounts",
+								"logout",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\n{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2MzIyNzc3NSwiaWF0IjoxNzYzMTQxMzc1LCJqdGkiOiJhN2YzNzQ1MDE5ODE0YWZlYmNjY2EwYWRhMmM4ZDBkNSIsInVzZXJfaWQiOiI5Y2ExMGVlYS0wM2Q0LTQ4ZmItYWVkOS0zOTg4YjgzMTRkZDAifQ.1kZW61I3C84EChC-cHcr9lirAQpDPwL-fuyRc_3XtAY\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/accounts/logout/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"accounts",
+										"logout",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 14 Nov 2025 17:33:11 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\n//   \"email\": \"user@test.com\",\n//   \"password\": \"password123\"\n// }\n{\n  \"email\": \"admin@admin.com\",\n  \"password\": \"admin\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/accounts/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"accounts",
+								"login",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"user@test.com\",\n  \"password\": \"password123\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/accounts/login/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"accounts",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 14 Nov 2025 17:29:35 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "582"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2MzIyNzc3NSwiaWF0IjoxNzYzMTQxMzc1LCJqdGkiOiJhN2YzNzQ1MDE5ODE0YWZlYmNjY2EwYWRhMmM4ZDBkNSIsInVzZXJfaWQiOiI5Y2ExMGVlYS0wM2Q0LTQ4ZmItYWVkOS0zOTg4YjgzMTRkZDAifQ.1kZW61I3C84EChC-cHcr9lirAQpDPwL-fuyRc_3XtAY\",\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYzMTQ0OTc1LCJpYXQiOjE3NjMxNDEzNzUsImp0aSI6IjNkNjdmOWNmYmQ0NTRkYjBiNmE2NTZjMmNiMGY0NTIxIiwidXNlcl9pZCI6IjljYTEwZWVhLTAzZDQtNDhmYi1hZWQ5LTM5ODhiODMxNGRkMCJ9.QZTlUM1LJXSRJRq4oB7vjqU4wwC0Vj92Lo3sTiVv5c0\"\n}"
+						}
+					]
+				},
+				{
+					"name": "user signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"user@test.com\",\n  \"password\": \"password123\",\n  \"password2\": \"password123\",\n  \"username\": \"username123\",\n  \"first_name\": \"test\",\n  \"last_name\": \"user\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/accounts/signup/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"accounts",
+								"signup",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"user@test.com\",\n  \"password\": \"password123\",\n  \"password2\": \"password123\",\n  \"username\": \"username123\",\n  \"first_name\": \"test\",\n  \"last_name\": \"user\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/accounts/signup/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"accounts",
+										"signup",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 14 Nov 2025 17:27:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "238"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User created successfully\",\n    \"user\": {\n        \"email\": \"user@test.com\",\n        \"username\": \"username123\",\n        \"first_name\": \"test\",\n        \"last_name\": \"user\",\n        \"date_joined\": \"2025-11-14T17:27:21.080360Z\",\n        \"updated_at\": \"2025-11-14T17:27:21.080401Z\"\n    },\n    \"success\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "get access token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2MzIyNzc3NSwiaWF0IjoxNzYzMTQxMzc1LCJqdGkiOiJhN2YzNzQ1MDE5ODE0YWZlYmNjY2EwYWRhMmM4ZDBkNSIsInVzZXJfaWQiOiI5Y2ExMGVlYS0wM2Q0LTQ4ZmItYWVkOS0zOTg4YjgzMTRkZDAifQ.1kZW61I3C84EChC-cHcr9lirAQpDPwL-fuyRc_3XtAY\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/accounts/token/refresh/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"accounts",
+								"token",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\n{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2MzIyNzc3NSwiaWF0IjoxNzYzMTQxMzc1LCJqdGkiOiJhN2YzNzQ1MDE5ODE0YWZlYmNjY2EwYWRhMmM4ZDBkNSIsInVzZXJfaWQiOiI5Y2ExMGVlYS0wM2Q0LTQ4ZmItYWVkOS0zOTg4YjgzMTRkZDAifQ.1kZW61I3C84EChC-cHcr9lirAQpDPwL-fuyRc_3XtAY\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/accounts/token/refresh/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"accounts",
+										"token",
+										"refresh",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 14 Nov 2025 17:31:12 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "290"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYzMTQ1MDcyLCJpYXQiOjE3NjMxNDE0NzIsImp0aSI6ImQwOTBlY2FlMDEyNjRhYjM4MWJiMTllZDE3YjYxZmVlIiwidXNlcl9pZCI6IjljYTEwZWVhLTAzZDQtNDhmYi1hZWQ5LTM5ODhiODMxNGRkMCJ9.p8yyGYxdBjgDc9wibQvklOwlTwTRHs3LCxGcPjf0eJU\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Templates",
+			"item": [
+				{
+					"name": "get forms",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/forms/templates/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"forms",
+								"templates",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/forms/templates/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"forms",
+										"templates",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 14 Nov 2025 17:55:55 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2047"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statuscode\": 200,\n    \"title\": \"Template List\",\n    \"data\": [\n        {\n            \"id\": \"0eed5604-48b4-4454-9610-286cfb04fbd0\",\n            \"auto_id\": 2,\n            \"created_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n            \"updated_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n            \"created_at\": \"2025-11-14T15:32:57.298744Z\",\n            \"updated_at\": \"2025-11-14T16:05:31.738599Z\",\n            \"is_deleted\": false,\n            \"custom_order\": null,\n            \"alt_txt\": null,\n            \"name\": \"Bank details\",\n            \"slug\": \"bank-details\",\n            \"description\": \"bank details\",\n            \"schema\": [\n                {\n                    \"id\": \"f_ksu82rc\",\n                    \"label\": \"account_no\",\n                    \"type\": \"number\",\n                    \"placeholder\": \"ACCOUNT NO\",\n                    \"required\": true,\n                    \"options\": [],\n                    \"order\": 0\n                },\n                {\n                    \"id\": \"f_tu2vtqe\",\n                    \"label\": \"ifsc\",\n                    \"type\": \"number\",\n                    \"placeholder\": \"IFSC\",\n                    \"required\": false,\n                    \"options\": [],\n                    \"order\": 1\n                },\n                {\n                    \"id\": \"f_ltealy9\",\n                    \"label\": \"name\",\n                    \"type\": \"text\",\n                    \"placeholder\": \"NAME\",\n                    \"required\": true,\n                    \"options\": [],\n                    \"order\": 2\n                },\n                {\n                    \"id\": \"f_mqgrrek\",\n                    \"label\": \"number\",\n                    \"type\": \"number\",\n                    \"placeholder\": \"NUMBER\",\n                    \"required\": false,\n                    \"options\": [],\n                    \"order\": 3\n                },\n                {\n                    \"id\": \"f_ra93fdp\",\n                    \"label\": \"a\",\n                    \"type\": \"text\",\n                    \"placeholder\": \"g\",\n                    \"required\": false,\n                    \"options\": [],\n                    \"order\": 4\n                },\n                {\n                    \"id\": \"f_gm3w5d6\",\n                    \"label\": \"q\",\n                    \"type\": \"text\",\n                    \"placeholder\": \"\",\n                    \"required\": false,\n                    \"options\": [],\n                    \"order\": 5\n                }\n            ]\n        },\n        {\n            \"id\": \"531d5783-b3c2-40a2-b223-63e68f6974cd\",\n            \"auto_id\": 1,\n            \"created_by\": \"1eb8699a-dad7-4d5c-9961-731092e169b3\",\n            \"updated_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n            \"created_at\": \"2025-11-13T17:14:27.953015Z\",\n            \"updated_at\": \"2025-11-14T15:59:37.175284Z\",\n            \"is_deleted\": false,\n            \"custom_order\": null,\n            \"alt_txt\": null,\n            \"name\": \"Test\",\n            \"slug\": \"test\",\n            \"description\": \"testing\",\n            \"schema\": [\n                {\n                    \"id\": \"f_04spnzg\",\n                    \"label\": \"name\",\n                    \"type\": \"text\",\n                    \"placeholder\": \"NAME\",\n                    \"required\": true,\n                    \"options\": [],\n                    \"order\": 0\n                },\n                {\n                    \"id\": \"f_mpvt5mu\",\n                    \"label\": \"age\",\n                    \"type\": \"number\",\n                    \"placeholder\": \"AGE\",\n                    \"required\": true,\n                    \"options\": [],\n                    \"order\": 1\n                },\n                {\n                    \"id\": \"f_sj6qyba\",\n                    \"label\": \"password\",\n                    \"type\": \"password\",\n                    \"placeholder\": \"PASSWORD\",\n                    \"required\": true,\n                    \"options\": [],\n                    \"order\": 2\n                },\n                {\n                    \"id\": \"f_0a1zs4u\",\n                    \"label\": \"phone\",\n                    \"type\": \"number\",\n                    \"placeholder\": \"NUMBER\",\n                    \"required\": false,\n                    \"options\": [],\n                    \"order\": 3\n                },\n                {\n                    \"id\": \"f_xr12hop\",\n                    \"label\": \"q\",\n                    \"type\": \"text\",\n                    \"placeholder\": \"\",\n                    \"required\": false,\n                    \"options\": [],\n                    \"order\": 4\n                }\n            ]\n        }\n    ],\n    \"errors\": {},\n    \"message\": \"Success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "form create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Employee Form\",\n  \"description\": \"Basic employee form\",\n  \"schema\": [\n    {\n      \"label\": \"Full Name\",\n      \"type\": \"text\",\n      \"placeholder\": \"Enter name\",\n      \"required\": true,\n      \"options\": [],\n      \"order\": 0\n    },\n    {\n      \"label\": \"DOB\",\n      \"type\": \"date\",\n      \"placeholder\": \"\",\n      \"required\": false,\n      \"options\": [],\n      \"order\": 1\n    }\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/forms/templates/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"forms",
+								"templates",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "form create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Employee Form\",\n  \"description\": \"Basic employee form\",\n  \"schema\": [\n    {\n      \"label\": \"Full Name\",\n      \"type\": \"text\",\n      \"placeholder\": \"Enter name\",\n      \"required\": true,\n      \"options\": [],\n      \"order\": 0\n    },\n    {\n      \"label\": \"DOB\",\n      \"type\": \"date\",\n      \"placeholder\": \"\",\n      \"required\": false,\n      \"options\": [],\n      \"order\": 1\n    }\n  ]\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/forms/templates/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"forms",
+										"templates",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 15 Nov 2025 04:30:34 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "683"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statuscode\": 201,\n    \"title\": \"Template Created\",\n    \"data\": {\n        \"id\": \"596c38b5-cbb0-4a90-b1e8-54d9d6a940c9\",\n        \"auto_id\": 6,\n        \"created_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n        \"updated_by\": null,\n        \"created_at\": \"2025-11-15T04:30:34.084447Z\",\n        \"updated_at\": \"2025-11-15T04:30:34.084484Z\",\n        \"is_deleted\": false,\n        \"custom_order\": null,\n        \"alt_txt\": null,\n        \"name\": \"Employee Form\",\n        \"slug\": \"employee-form\",\n        \"description\": \"Basic employee form\",\n        \"schema\": [\n            {\n                \"label\": \"Full Name\",\n                \"type\": \"text\",\n                \"placeholder\": \"Enter name\",\n                \"required\": true,\n                \"options\": [],\n                \"order\": 0,\n                \"id\": \"f_97d9796e\"\n            },\n            {\n                \"label\": \"DOB\",\n                \"type\": \"date\",\n                \"placeholder\": \"\",\n                \"required\": false,\n                \"options\": [],\n                \"order\": 1,\n                \"id\": \"f_2452ba48\"\n            }\n        ]\n    },\n    \"errors\": {},\n    \"message\": \"Created Successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "form update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n            \"id\": \"596c38b5-cbb0-4a90-b1e8-54d9d6a940c9\",\n            \"auto_id\": 6,\n            \"created_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n            \"updated_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n            \"created_at\": \"2025-11-15T04:30:34.084447Z\",\n            \"updated_at\": \"2025-11-15T04:31:41.704035Z\",\n            \"is_deleted\": false,\n            \"custom_order\": null,\n            \"alt_txt\": null,\n            \"name\": \"Employee Form\",\n            \"slug\": \"employee-form\",\n            \"description\": \"Basic employee form\",\n            \"schema\": [\n                {\n                    \"id\": \"f_97d9796e\",\n                    \"label\": \"Full Name\",\n                    \"type\": \"text\",\n                    \"placeholder\": \"Enter name::\",\n                    \"required\": true,\n                    \"options\": [],\n                    \"order\": 0\n                },\n                {\n                    \"id\": \"f_yjg0i8s\",\n                    \"label\": \"age\",\n                    \"type\": \"text\",\n                    \"placeholder\": \"AGE\",\n                    \"required\": false,\n                    \"options\": [],\n                    \"order\": 1\n                },\n                {\n                    \"id\": \"f_2452ba48\",\n                    \"label\": \"DOB\",\n                    \"type\": \"date\",\n                    \"placeholder\": \"\",\n                    \"required\": false,\n                    \"options\": [],\n                    \"order\": 2\n                }\n            ]\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/forms/templates/employee-form/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"forms",
+								"templates",
+								"employee-form",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n            \"id\": \"596c38b5-cbb0-4a90-b1e8-54d9d6a940c9\",\n            \"auto_id\": 6,\n            \"created_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n            \"updated_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n            \"created_at\": \"2025-11-15T04:30:34.084447Z\",\n            \"updated_at\": \"2025-11-15T04:31:41.704035Z\",\n            \"is_deleted\": false,\n            \"custom_order\": null,\n            \"alt_txt\": null,\n            \"name\": \"Employee Form\",\n            \"slug\": \"employee-form\",\n            \"description\": \"Basic employee form\",\n            \"schema\": [\n                {\n                    \"id\": \"f_97d9796e\",\n                    \"label\": \"Full Name\",\n                    \"type\": \"text\",\n                    \"placeholder\": \"Enter name::\",\n                    \"required\": true,\n                    \"options\": [],\n                    \"order\": 0\n                },\n                {\n                    \"id\": \"f_yjg0i8s\",\n                    \"label\": \"age\",\n                    \"type\": \"text\",\n                    \"placeholder\": \"AGE\",\n                    \"required\": false,\n                    \"options\": [],\n                    \"order\": 1\n                },\n                {\n                    \"id\": \"f_2452ba48\",\n                    \"label\": \"DOB\",\n                    \"type\": \"date\",\n                    \"placeholder\": \"\",\n                    \"required\": false,\n                    \"options\": [],\n                    \"order\": 2\n                }\n            ]\n        }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/forms/templates/employee-form/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"forms",
+										"templates",
+										"employee-form",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 15 Nov 2025 04:37:40 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "817"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statuscode\": 200,\n    \"title\": \"Updated\",\n    \"data\": {\n        \"id\": \"596c38b5-cbb0-4a90-b1e8-54d9d6a940c9\",\n        \"auto_id\": 6,\n        \"created_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n        \"updated_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n        \"created_at\": \"2025-11-15T04:30:34.084447Z\",\n        \"updated_at\": \"2025-11-15T04:37:40.913647Z\",\n        \"is_deleted\": false,\n        \"custom_order\": null,\n        \"alt_txt\": null,\n        \"name\": \"Employee Form\",\n        \"slug\": \"employee-form\",\n        \"description\": \"Basic employee form\",\n        \"schema\": [\n            {\n                \"id\": \"f_97d9796e\",\n                \"label\": \"Full Name\",\n                \"type\": \"text\",\n                \"placeholder\": \"Enter name::\",\n                \"required\": true,\n                \"options\": [],\n                \"order\": 0\n            },\n            {\n                \"id\": \"f_yjg0i8s\",\n                \"label\": \"age\",\n                \"type\": \"text\",\n                \"placeholder\": \"AGE\",\n                \"required\": false,\n                \"options\": [],\n                \"order\": 1\n            },\n            {\n                \"id\": \"f_2452ba48\",\n                \"label\": \"DOB\",\n                \"type\": \"date\",\n                \"placeholder\": \"\",\n                \"required\": false,\n                \"options\": [],\n                \"order\": 2\n            }\n        ]\n    },\n    \"errors\": {},\n    \"message\": \"Updated Successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete form",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/forms/templates/employee-form/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"forms",
+								"templates",
+								"employee-form",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/forms/templates/employee-form/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"forms",
+										"templates",
+										"employee-form",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 15 Nov 2025 04:39:06 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "91"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statuscode\": 200,\n    \"title\": \"Deleted\",\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"Deleted Successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "single get form",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/forms/templates/employee-form/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"forms",
+								"templates",
+								"employee-form",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/forms/templates/employee-form/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"forms",
+										"templates",
+										"employee-form",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 15 Nov 2025 04:40:49 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "812"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statuscode\": 200,\n    \"title\": \"Template Detail\",\n    \"data\": {\n        \"id\": \"596c38b5-cbb0-4a90-b1e8-54d9d6a940c9\",\n        \"auto_id\": 6,\n        \"created_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n        \"updated_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n        \"created_at\": \"2025-11-15T04:30:34.084447Z\",\n        \"updated_at\": \"2025-11-15T04:40:43.281791Z\",\n        \"is_deleted\": false,\n        \"custom_order\": null,\n        \"alt_txt\": null,\n        \"name\": \"Employee Form\",\n        \"slug\": \"employee-form\",\n        \"description\": \"Basic employee form\",\n        \"schema\": [\n            {\n                \"id\": \"f_97d9796e\",\n                \"label\": \"Full Name\",\n                \"type\": \"text\",\n                \"placeholder\": \"Enter name::\",\n                \"required\": true,\n                \"options\": [],\n                \"order\": 0\n            },\n            {\n                \"id\": \"f_yjg0i8s\",\n                \"label\": \"age\",\n                \"type\": \"text\",\n                \"placeholder\": \"AGE\",\n                \"required\": false,\n                \"options\": [],\n                \"order\": 1\n            },\n            {\n                \"id\": \"f_2452ba48\",\n                \"label\": \"DOB\",\n                \"type\": \"date\",\n                \"placeholder\": \"\",\n                \"required\": false,\n                \"options\": [],\n                \"order\": 2\n            }\n        ]\n    },\n    \"errors\": {},\n    \"message\": \"Success\"\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYzMTg0NjAwLCJpYXQiOjE3NjMxODEwMDAsImp0aSI6ImZkMjlkMjkyN2NjNzRlMWJiMTBhODI1MWVjYTAwNWViIiwidXNlcl9pZCI6IjBhZjliNzMzLWU3YzYtNDVjNi04NTM2LTViYzBkYTNjYzhhYyJ9.LRflzay2sZzwTJnruvVbXzRHeNJFYiIAh9nHdhVcx78",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Employees",
+			"item": [
+				{
+					"name": "employee list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/employee/employees/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"employees",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/employee/employees/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"employee",
+										"employees",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 15 Nov 2025 04:43:38 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2206"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statuscode\": 200,\n    \"title\": \"Employee List\",\n    \"data\": [\n        {\n            \"id\": \"6fe6aeb8-d6a9-4426-be90-dd0e18802a9f\",\n            \"auto_id\": 8,\n            \"created_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n            \"updated_by\": null,\n            \"created_at\": \"2025-11-15T04:31:10.670212Z\",\n            \"updated_at\": \"2025-11-15T04:31:10.670243Z\",\n            \"is_deleted\": false,\n            \"custom_order\": null,\n            \"alt_txt\": null,\n            \"template\": \"596c38b5-cbb0-4a90-b1e8-54d9d6a940c9\",\n            \"data\": {\n                \"f_97d9796e\": \"test\",\n                \"f_2452ba48\": \"2025-11-14\"\n            }\n        },\n        {\n            \"id\": \"2e01008b-32b1-40e3-888a-9e20dd6f7751\",\n            \"auto_id\": 7,\n            \"created_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n            \"updated_by\": null,\n            \"created_at\": \"2025-11-15T03:59:40.265343Z\",\n            \"updated_at\": \"2025-11-15T03:59:40.265386Z\",\n            \"is_deleted\": false,\n            \"custom_order\": null,\n            \"alt_txt\": null,\n            \"template\": \"0eed5604-48b4-4454-9610-286cfb04fbd0\",\n            \"data\": {\n                \"f_ksu82rc\": \"1\",\n                \"f_tu2vtqe\": \"2\",\n                \"f_ltealy9\": \"w\",\n                \"f_mqgrrek\": \"\",\n                \"f_ra93fdp\": \"\",\n                \"f_gm3w5d6\": \"\"\n            }\n        },\n        {\n            \"id\": \"fef62e49-ad05-4087-8d24-b9aee310aa4e\",\n            \"auto_id\": 6,\n            \"created_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n            \"updated_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n            \"created_at\": \"2025-11-14T15:33:38.239609Z\",\n            \"updated_at\": \"2025-11-14T15:33:52.197192Z\",\n            \"is_deleted\": false,\n            \"custom_order\": null,\n            \"alt_txt\": null,\n            \"template\": \"0eed5604-48b4-4454-9610-286cfb04fbd0\",\n            \"data\": {\n                \"f_ksu82rc\": \"123456789\",\n                \"f_tu2vtqe\": \"234\",\n                \"f_ltealy9\": \"asdfgh\",\n                \"f_mqgrrek\": \"12345\"\n            }\n        },\n        {\n            \"id\": \"037571bb-1381-4cf5-baad-3cc5978da928\",\n            \"auto_id\": 5,\n            \"created_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n            \"updated_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n            \"created_at\": \"2025-11-14T15:30:00.257836Z\",\n            \"updated_at\": \"2025-11-14T15:30:10.127832Z\",\n            \"is_deleted\": false,\n            \"custom_order\": null,\n            \"alt_txt\": null,\n            \"template\": \"531d5783-b3c2-40a2-b223-63e68f6974cd\",\n            \"data\": {\n                \"f_04spnzg\": \"Akshay\",\n                \"f_mpvt5mu\": \"12\",\n                \"f_sj6qyba\": \"agsts\",\n                \"f_0a1zs4u\": \"123456780\"\n            }\n        },\n        {\n            \"id\": \"8709d719-5656-454f-a594-e768fd90565b\",\n            \"auto_id\": 3,\n            \"created_by\": \"1eb8699a-dad7-4d5c-9961-731092e169b3\",\n            \"updated_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n            \"created_at\": \"2025-11-13T18:09:20.557775Z\",\n            \"updated_at\": \"2025-11-14T15:30:24.245259Z\",\n            \"is_deleted\": false,\n            \"custom_order\": null,\n            \"alt_txt\": null,\n            \"template\": \"531d5783-b3c2-40a2-b223-63e68f6974cd\",\n            \"data\": {\n                \"f_04spnzg\": \"Anandu\",\n                \"f_mpvt5mu\": \"24\",\n                \"f_sj6qyba\": \"12345\",\n                \"f_0a1zs4u\": \"754346342\"\n            }\n        }\n    ],\n    \"errors\": {},\n    \"message\": \"Success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "employee post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"template_slug\": \"test\",\n            \"data\": {\n                \"f_04spnzg\": \"Vishnu\",\n                \"f_mpvt5mu\": \"30\",\n                \"f_sj6qyba\": \"agsts\",\n                \"f_0a1zs4u\": \"123456780\"\n            }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/employee/employees/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"employees",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"template_slug\": \"test\",\n            \"data\": {\n                \"f_04spnzg\": \"Vishnu\",\n                \"f_mpvt5mu\": \"30\",\n                \"f_sj6qyba\": \"agsts\",\n                \"f_0a1zs4u\": \"123456780\"\n            }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/employee/employees/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"employee",
+										"employees",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 15 Nov 2025 05:02:27 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "506"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statuscode\": 201,\n    \"title\": \"Employee Created\",\n    \"data\": {\n        \"id\": \"6738fec2-9810-4106-a373-2c39cc419add\",\n        \"auto_id\": 9,\n        \"created_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n        \"updated_by\": null,\n        \"created_at\": \"2025-11-15T05:02:27.950261Z\",\n        \"updated_at\": \"2025-11-15T05:02:27.950340Z\",\n        \"is_deleted\": false,\n        \"custom_order\": null,\n        \"alt_txt\": null,\n        \"template\": \"531d5783-b3c2-40a2-b223-63e68f6974cd\",\n        \"data\": {\n            \"f_04spnzg\": \"Vishnu\",\n            \"f_mpvt5mu\": \"30\",\n            \"f_sj6qyba\": \"agsts\",\n            \"f_0a1zs4u\": \"123456780\"\n        }\n    },\n    \"errors\": {},\n    \"message\": \"Created Successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "employee edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n        \"template_slug\": \"test\",\n        \"data\": {\n            \"f_04spnzg\": \"Vishnuk\",\n            \"f_mpvt5mu\": \"30\",\n            \"f_sj6qyba\": \"agsts\",\n            \"f_0a1zs4u\": \"123456780\"\n        }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/employee/employees/6738fec2-9810-4106-a373-2c39cc419add/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"employees",
+								"6738fec2-9810-4106-a373-2c39cc419add",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n        \"template_slug\": \"test\",\n        \"data\": {\n            \"f_04spnzg\": \"Vishnuk\",\n            \"f_mpvt5mu\": \"30\",\n            \"f_sj6qyba\": \"agsts\",\n            \"f_0a1zs4u\": \"123456780\"\n        }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/employee/employees/6738fec2-9810-4106-a373-2c39cc419add/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"employee",
+										"employees",
+										"6738fec2-9810-4106-a373-2c39cc419add",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 15 Nov 2025 05:05:58 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "541"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statuscode\": 200,\n    \"title\": \"Employee Updated\",\n    \"data\": {\n        \"id\": \"6738fec2-9810-4106-a373-2c39cc419add\",\n        \"auto_id\": 9,\n        \"created_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n        \"updated_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n        \"created_at\": \"2025-11-15T05:02:27.950261Z\",\n        \"updated_at\": \"2025-11-15T05:05:58.224562Z\",\n        \"is_deleted\": false,\n        \"custom_order\": null,\n        \"alt_txt\": null,\n        \"template\": \"531d5783-b3c2-40a2-b223-63e68f6974cd\",\n        \"data\": {\n            \"f_04spnzg\": \"Vishnuk\",\n            \"f_mpvt5mu\": \"30\",\n            \"f_sj6qyba\": \"agsts\",\n            \"f_0a1zs4u\": \"123456780\"\n        }\n    },\n    \"errors\": {},\n    \"message\": \"Updated Successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "employee delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/employee/employees/6738fec2-9810-4106-a373-2c39cc419add/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"employees",
+								"6738fec2-9810-4106-a373-2c39cc419add",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete employee",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/employee/employees/6738fec2-9810-4106-a373-2c39cc419add/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"employee",
+										"employees",
+										"6738fec2-9810-4106-a373-2c39cc419add",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 15 Nov 2025 05:07:15 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "100"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statuscode\": 200,\n    \"title\": \"Deleted\",\n    \"data\": {},\n    \"errors\": {},\n    \"message\": \"Employee Deleted Successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "employee single get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/employee/employees/6738fec2-9810-4106-a373-2c39cc419add/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"employees",
+								"6738fec2-9810-4106-a373-2c39cc419add",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/v1/employee/employees/6738fec2-9810-4106-a373-2c39cc419add/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"employee",
+										"employees",
+										"6738fec2-9810-4106-a373-2c39cc419add",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 15 Nov 2025 05:09:24 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "527"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statuscode\": 200,\n    \"title\": \"Employee Detail\",\n    \"data\": {\n        \"id\": \"6738fec2-9810-4106-a373-2c39cc419add\",\n        \"auto_id\": 9,\n        \"created_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n        \"updated_by\": \"0af9b733-e7c6-45c6-8536-5bc0da3cc8ac\",\n        \"created_at\": \"2025-11-15T05:02:27.950261Z\",\n        \"updated_at\": \"2025-11-15T05:09:18.348782Z\",\n        \"is_deleted\": false,\n        \"custom_order\": null,\n        \"alt_txt\": null,\n        \"template\": \"531d5783-b3c2-40a2-b223-63e68f6974cd\",\n        \"data\": {\n            \"f_04spnzg\": \"Vishnuk\",\n            \"f_mpvt5mu\": \"30\",\n            \"f_sj6qyba\": \"agsts\",\n            \"f_0a1zs4u\": \"123456780\"\n        }\n    },\n    \"errors\": {},\n    \"message\": \"Success\"\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYzMTg1Mzg4LCJpYXQiOjE3NjMxODE3ODgsImp0aSI6ImE5YmMzMzA5ZjA3ODRkMzU4NDIzZDc0ODc3OWIxYTk4IiwidXNlcl9pZCI6IjBhZjliNzMzLWU3YzYtNDVjNi04NTM2LTViYzBkYTNjYzhhYyJ9.uxGbweww16nZ-wvdXmeSauux8ODE0C_gGMJS5N_EYFg",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}

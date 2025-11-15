@@ -1,0 +1,276 @@
+{% extends "base.html" %}
+{% block title %}{{ mode|title }} Template Builder{% endblock %}
+{% block content %}
+
+<div class="container py-4">
+
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">{{ mode|title }} Template</h2>
+        <a href="{% url 'forms:template_list' %}" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i> Back to Templates
+        </a>
+    </div>
+
+    <!-- MAIN CARD -->
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <!-- FORM NAME -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Form Name</label>
+                <input id="form-name" type="text"
+                       class="form-control"
+                       placeholder="Enter form name"
+                       value="{{ template.name|default:'' }}">
+            </div>
+
+            <!-- DESCRIPTION -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Description</label>
+                <textarea id="form-desc" rows="2"
+                          class="form-control"
+                          placeholder="Enter form description">{{ template.description|default:'' }}</textarea>
+            </div>
+
+            <!-- ACTION BUTTONS -->
+            <div class="my-3">
+                <button id="add-field" class="btn btn-outline-primary me-2">
+                    <i class="bi bi-plus-circle"></i> Add Field
+                </button>
+                <button id="save-template" class="btn btn-success">
+                    <i class="bi bi-check-circle-fill"></i> Save Template
+                </button>
+            </div>
+
+            <hr>
+
+            <!-- FIELDS BUILDER -->
+            <h5 class="fw-bold mb-3">Fields</h5>
+
+            <div id="fields-area">
+                <div id="fields-list" class="vstack gap-3"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- FIELD TEMPLATE (NO MODIFICATION DONE) -->
+<template id="field-item-tpl">
+  <div class="card p-3 border field-item" data-id="">
+    <div class="row g-3 align-items-center">
+
+      <div class="col-md-3">
+        <input class="form-control field-label" placeholder="Label"/>
+      </div>
+
+      <div class="col-md-2">
+        <select class="form-select field-type">
+          <option value="text">Text</option>
+          <option value="number">Number</option>
+          <option value="date">Date</option>
+          <option value="password">Password</option>
+          <option value="select">Select</option>
+          <option value="textarea">Textarea</option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <input class="form-control field-placeholder" placeholder="Placeholder"/>
+      </div>
+
+      <div class="col-md-2 d-flex align-items-center">
+        <input type="checkbox" class="form-check-input field-required me-2"/>
+        <label class="form-check-label">Required</label>
+      </div>
+
+      <div class="col-md-2 text-end">
+        <button class="btn btn-sm btn-outline-secondary add-option mb-1" style="display:none">Add Option</button>
+        <button class="btn btn-sm btn-danger remove-field">Remove</button>
+      </div>
+    </div>
+
+    <div class="options-list mt-3" style="display:none"></div>
+  </div>
+</template>
+
+<!-- EXISTING JSON SCRIPT BLOCKS (UNCHANGED) -->
+{% if template %}
+    {{ template.schema|json_script:"schema-json" }}
+    {{ template.slug|json_script:"template-slug" }}
+{% else %}
+    {{ "[]"|safe|json_script:"schema-json" }}
+    {{ "null"|safe|json_script:"template-slug" }}
+{% endif %}
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
+<script>
+/* ---------------------------------------
+   SAFE PARSING OF SCHEMA + TEMPLATE SLUG
+---------------------------------------- */
+function safeParse(value, fallback) {
+    try {
+        let parsed = JSON.parse(value);
+        return parsed === "" || parsed === undefined ? fallback : parsed;
+    } catch {
+        return fallback;
+    }
+}
+
+let rawSchema = document.getElementById("schema-json").textContent;
+let rawSlug   = document.getElementById("template-slug").textContent;
+
+let schema = safeParse(rawSchema, []);
+let templateSlug = safeParse(rawSlug, null);
+
+// Always ensure schema is an array
+if (!Array.isArray(schema)) schema = [];
+
+
+/* ---------------------------------------
+   DOM REFERENCES
+---------------------------------------- */
+const fieldsList = document.getElementById('fields-list');
+
+function makeId(){ return 'f_' + Math.random().toString(36).slice(2,9); }
+
+
+/* ---------------------------------------
+   CREATE FIELD NODE
+---------------------------------------- */
+function createFieldNode(f){
+  const tpl = document.getElementById('field-item-tpl').content.cloneNode(true);
+  const el = tpl.querySelector('.field-item');
+
+  el.dataset.id = f.id;
+  el.querySelector('.field-label').value = f.label || '';
+  el.querySelector('.field-type').value = f.type || 'text';
+  el.querySelector('.field-placeholder').value = f.placeholder || '';
+  el.querySelector('.field-required').checked = !!f.required;
+
+  const typeSelect = el.querySelector('.field-type');
+  const addOptionBtn = el.querySelector('.add-option');
+  const optionsList = el.querySelector('.options-list');
+
+  function toggleOptionsUI(){
+    if(typeSelect.value === 'select'){
+      addOptionBtn.style.display = 'inline-block';
+      optionsList.style.display = 'block';
+    } else {
+      addOptionBtn.style.display = 'none';
+      optionsList.style.display = 'none';
+    }
+  }
+
+  typeSelect.addEventListener('change', toggleOptionsUI);
+  toggleOptionsUI();
+
+  // existing options
+  if(Array.isArray(f.options)){
+    f.options.forEach(opt=>{
+      const row = document.createElement('div');
+      row.innerHTML = `<input class="opt-val" value="${opt}"> <button class="remove-opt">x</button>`;
+      optionsList.appendChild(row);
+      row.querySelector('.remove-opt').onclick = ()=> row.remove();
+    });
+  }
+
+  addOptionBtn.onclick = ()=>{
+    const row = document.createElement('div');
+    row.innerHTML = `<input class="opt-val" placeholder="Option"> <button class="remove-opt">x</button>`;
+    optionsList.appendChild(row);
+    row.querySelector('.remove-opt').onclick = ()=> row.remove();
+  };
+
+  el.querySelector('.remove-field').onclick = ()=> el.remove();
+
+  return el;
+}
+
+
+/* ---------------------------------------
+   RENDER FIELDS
+---------------------------------------- */
+function renderFields(list){
+  fieldsList.innerHTML = "";
+  list
+    .sort((a,b)=> (a.order||0)-(b.order||0))
+    .forEach(f => fieldsList.appendChild(createFieldNode(f)));
+}
+
+// INIT LOAD
+renderFields(schema);
+
+
+/* ---------------------------------------
+   ADD FIELD BUTTON
+---------------------------------------- */
+document.getElementById('add-field').onclick = ()=>{
+  const f = {
+    id: makeId(),
+    label:'',
+    type:'text',
+    placeholder:'',
+    required:false,
+    options:[],
+    order:fieldsList.children.length
+  };
+  fieldsList.appendChild(createFieldNode(f));
+};
+
+
+/* ---------------------------------------
+   SORTABLE
+---------------------------------------- */
+new Sortable(fieldsList, { animation:150 });
+
+
+/* ---------------------------------------
+   COLLECT SCHEMA
+---------------------------------------- */
+function collectSchema(){
+  return [...fieldsList.children].map((node, idx)=>({
+    id: node.dataset.id,
+    label: node.querySelector('.field-label').value,
+    type: node.querySelector('.field-type').value,
+    placeholder: node.querySelector('.field-placeholder').value,
+    required: node.querySelector('.field-required').checked,
+    options: [...node.querySelectorAll('.opt-val')].map(i => i.value),
+    order: idx
+  }));
+}
+
+
+/* ---------------------------------------
+   SAVE TEMPLATE (CREATE / UPDATE)
+---------------------------------------- */
+document.getElementById('save-template').onclick = async ()=>{
+  const name = document.getElementById('form-name').value.trim();
+  if (!name) return alert('Form name required');
+
+  const payload = {
+    name,
+    description: document.getElementById('form-desc').value,
+    schema: collectSchema(),
+    slug: templateSlug
+  };
+
+  const resp = await fetch("{% url 'forms:save_template' %}", {
+    method:'POST',
+    headers:{'Content-Type':'application/json','X-CSRFToken':'{{ csrf_token }}'},
+    body:JSON.stringify(payload)
+  });
+
+  const j = await resp.json();
+  if(j.status==='ok') {
+    alert("Saved!");
+    window.location.href = "{% url 'forms:template_list' %}";
+  }
+};
+console.log("Save URL should be:", "{% url 'forms:save_template' %}");
+console.log("CSRF Token:", "{{ csrf_token }}" ? "Exists" : "Missing");
+</script>
+
+{% endblock %}

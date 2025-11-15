@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% block title %}{{ mode|title }} Employee - {{ template.name }}{% endblock %}
+{% block content %}
+{% load static %}
+
+<div class="container py-4">
+
+    <!-- PAGE HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">
+            {{ mode|title }} Employee – <span class="text-primary">{{ template.name }}</span>
+        </h2>
+        <a href="{% url 'employees:employee_list' %}" class="btn btn-outline-secondary">
+            ← Back to List
+        </a>
+    </div>
+
+    <!-- FORM CARD -->
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <form id="emp-form" onsubmit="return false;">
+                {% csrf_token %}
+
+                <!-- Dynamic fields will render here -->
+                <div id="dyn-fields" class="row gy-4"></div>
+
+                <div class="mt-4">
+                    <button id="submit-btn" class="btn btn-primary">
+                        {{ mode|title }} Employee
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- SAFE JSON DATA -->
+{{ template.schema|json_script:"schema-json" }}
+{{ record.data|default:'{}'|json_script:"record-json" }}
+
+<style>
+    /* Better spacing and form layout */
+    .field-row label {
+        font-weight: 600;
+        margin-bottom: 6px;
+        display: block;
+    }
+    .field-row input,
+    .field-row select,
+    .field-row textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #ced4da;
+    }
+    .field-row textarea {
+        min-height: 80px;
+    }
+</style>
+
+<script>
+// -----------------------------------------------------------------------------
+// SAFE LOAD JSON
+// -----------------------------------------------------------------------------
+const schema = JSON.parse(document.getElementById("schema-json").textContent);
+const record = JSON.parse(document.getElementById("record-json").textContent);
+const mode = "{{ mode }}";
+const recordId = "{{ record.id|default:'' }}";
+
+const container = document.getElementById("dyn-fields");
+
+// -----------------------------------------------------------------------------
+// RENDER FIELDS
+// -----------------------------------------------------------------------------
+schema
+  .sort((a, b) => (a.order || 0) - (b.order || 0))
+  .forEach(f => {
+    const value = record[f.id] || "";
+    let html = "";
+
+    if (f.type === "textarea") {
+      html = `<textarea data-id="${f.id}" class="form-control" placeholder="${f.placeholder || ""}">${value}</textarea>`;
+    }
+    else if (f.type === "select") {
+      let opts = (f.options || [])
+        .map(o => `<option value="${o}" ${o == value ? "selected" : ""}>${o}</option>`)
+        .join("");
+      html = `<select data-id="${f.id}" class="form-select">${opts}</select>`;
+    }
+    else {
+      html = `<input type="${f.type || "text"}" data-id="${f.id}" class="form-control" value="${value}" placeholder="${f.placeholder || ""}">`;
+    }
+
+    const required = f.required ? " <span class='text-danger'>*</span>" : "";
+
+    container.innerHTML += `
+      <div class="col-md-6 field-row">
+        <label>${f.label}${required}</label>
+        ${html}
+        <div class="err text-danger small mt-1" data-err-for="${f.id}"></div>
+      </div>
+    `;
+  });
+
+
+// -----------------------------------------------------------------------------
+// CSRF
+// -----------------------------------------------------------------------------
+function getCsrf() {
+    return document.querySelector("[name=csrfmiddlewaretoken]").value;
+}
+
+
+// -----------------------------------------------------------------------------
+// SUBMIT HANDLER
+// -----------------------------------------------------------------------------
+document.getElementById("submit-btn").onclick = async function () {
+
+    let data = {};
+    document.querySelectorAll("[data-id]").forEach(i => (data[i.dataset.id] = i.value));
+
+    const createUrl = "/employees/ajax/save/{{ template.slug }}/";
+    const updateUrl = "/employees/ajax/save_update/" + recordId + "/";
+
+    const url = mode === "create" ? createUrl : updateUrl;
+
+    document.querySelectorAll(".err").forEach(e => (e.textContent = ""));
+
+    const resp = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": getCsrf(),
+        },
+        body: JSON.stringify({ data }),
+    });
+
+    const json = await resp.json();
+
+    if (json.ok) {
+        alert("Employee saved successfully!");
+        window.location.href = "{% url 'employees:employee_list' %}";
+        return;
+    }
+
+    if (json.errors) {
+        for (const [id, msg] of Object.entries(json.errors)) {
+            const el = document.querySelector(`[data-err-for="${id}"]`);
+            if (el) el.textContent = msg;
+        }
+    } else {
+        alert("Error saving employee");
+    }
+};
+</script>
+
+{% endblock %}
